@@ -1,6 +1,6 @@
 import { test, expect } from '@playwright/test';
-import { AuthenticationPage } from '../../../e2e/page-objects/Authentication';
 import { InventoryPage } from '../../page-objects/Inventory';
+import { AuthenticationPage } from '../../page-objects/Authentication';
 
 test.describe('Authentication', () => {
 	let authPage: AuthenticationPage;
