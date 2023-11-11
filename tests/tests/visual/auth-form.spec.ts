@@ -1,0 +1,29 @@
+import { test, expect } from '@playwright/test';
+import { AuthenticationPage } from '../../../e2e/page-objects/Authentication';
+import { InventoryPage } from '../../page-objects/Inventory';
+
+test.describe('Authentication', () => {
+	let authPage: AuthenticationPage;
+	let inventoryPage: InventoryPage;
+
+	test.beforeEach(async ({ page }) => {
+		authPage = new AuthenticationPage(page);
+		inventoryPage = new InventoryPage(page);
+
+		await page.goto('/');
+		await expect(page).toHaveTitle(/Swag Labs/);
+	});
+
+	test('verify authentication form', async ({ page }) => {
+		await expect(page).toHaveScreenshot('auth-form.png');
+	});
+
+	test('verify inventory page after login', async ({ page }) => {
+		await authPage.fillUsernameInput('standard_user');
+		await authPage.fillPasswordInput('secret_sauce');
+		await authPage.clickLoginBtn();
+
+		await inventoryPage.inventoryVisible();
+		await expect(page).toHaveScreenshot('inventory-page.png');
+	});
+});
