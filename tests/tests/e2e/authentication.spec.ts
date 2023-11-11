@@ -1,11 +1,14 @@
 import { test, expect } from '@playwright/test';
-import { AuthenticationPage } from '../page-objects/Authentication';
+import { AuthenticationPage } from '../../page-objects/Authentication';
+import { InventoryPage } from '../../page-objects/Inventory';
 
 test.describe('Authentication', () => {
 	let authPage: AuthenticationPage;
+	let inventoryPage: InventoryPage;
 
 	test.beforeEach(async ({ page }) => {
 		authPage = new AuthenticationPage(page);
+		inventoryPage = new InventoryPage(page);
 
 		await page.goto('/');
 		await expect(page).toHaveTitle(/Swag Labs/);
@@ -23,7 +26,7 @@ test.describe('Authentication', () => {
 		await authPage.fillPasswordInput('secret_sauce');
 		await authPage.clickLoginBtn();
 
-		await expect(page.locator('data-test=inventory_container')).toBeVisible();
+		await inventoryPage.inventoryVisible();
 		await page
 			.context()
 			.cookies()

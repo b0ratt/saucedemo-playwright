@@ -88,7 +88,7 @@ function Login(props) {
 					<div
 						id="login_button_container"
 						className="form_column"
-						data-test="auth_form"
+						data-testid="auth_form"
 					>
 						<div className="login-box">
 							<form onSubmit={handleSubmit}>
@@ -97,7 +97,7 @@ function Login(props) {
 									type={INPUT_TYPES.TEXT}
 									value={username}
 									onChange={handleUserChange}
-									testId="username"
+									data-testid="username"
 									placeholder="Username"
 									// Custom
 									id="user-name"
@@ -110,7 +110,7 @@ function Login(props) {
 									type={INPUT_TYPES.PASSWORD}
 									value={password}
 									onChange={handlePassChange}
-									testId="password"
+									data-testid="password"
 									placeholder="Password"
 									// Custom
 									autoCorrect="off"
@@ -125,7 +125,7 @@ function Login(props) {
 									// `btn_action` has no style function
 									// but is there for backwards compatibility
 									customClass="btn_action"
-									testId="login-button"
+									data-testid="login-button"
 									value="Login"
 								/>
 							</form>

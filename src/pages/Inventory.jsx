@@ -102,7 +102,7 @@ const Inventory = () => {
 						<div
 							id="inventory_container"
 							className="inventory_container"
-							data-test="inventory_container"
+							data-testid="inventory_container"
 						>
 							<div className="inventory_list">
 								{inventoryList.map((item, i) => {
