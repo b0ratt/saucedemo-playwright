@@ -12,12 +12,13 @@ import { defineConfig, devices } from '@playwright/test';
 export default defineConfig({
 	testDir: 'e2e/specs',
 	fullyParallel: true,
-	reporter: 'html',
+	reporter: [['html', { open: 'never' }]],
 	use: {
 		baseURL: 'http://localhost:3000',
 		testIdAttribute: 'data-test',
 		trace: 'on-first-retry',
 		viewport: { width: 1920, height: 1080 },
+		screenshot: 'only-on-failure',
 	},
 
 	projects: [
