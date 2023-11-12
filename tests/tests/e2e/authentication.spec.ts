@@ -21,7 +21,7 @@ test.describe('Authentication', () => {
 	});
 
 	test('login as standard user', async ({ page }) => {
-		await authPage.fillUsernameInput('standard_usasder');
+		await authPage.fillUsernameInput('standard_fffuser');
 		await authPage.fillPasswordInput('secret_sauce');
 		await authPage.clickLoginBtn();
 
