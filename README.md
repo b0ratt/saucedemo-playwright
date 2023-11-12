@@ -1,6 +1,6 @@
 # saucedemo-playwright
 
-## :notebook_with_decorative_cover: Saucedemo app + Playwright example. :notebook_with_decorative_cover:
+## :notebook_with_decorative_cover: Saucedemo app + Playwright example :notebook_with_decorative_cover:
 * TypeScript
 * Page object pattern
 * Divided E2E and visual tests
@@ -8,7 +8,7 @@
 * Playwright HTML reporter
 
 
-## :hammer: How to run: :hammer:
+## :hammer: How to run :hammer:
 1. Clone repository
 2. Install packages with `npm install`
 3. Start application with `npm run start`
