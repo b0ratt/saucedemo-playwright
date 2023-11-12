@@ -18,7 +18,9 @@
    - `npm visual` (only visual)
    - `npm all-tests` (everything)
 
-Right now using basic playwright html reporter so test execution results will be stored in `./playwright-report/` directory
+Right now using basic playwright html reporter so test execution results will be stored in `./playwright-report/` directory. Report will be shared at slack channel #playwright-results
+
+![slack-test-results](https://github.com/b0ratt/saucedemo-playwright-ts/assets/65670977/6de8670a-6a64-49c5-b0fe-71f2234102c5)
 
 ## :computer: GitHub Actions :computer:
 You can run all tests using GitHub Actions using `workflow_dispatch` event trigger.
