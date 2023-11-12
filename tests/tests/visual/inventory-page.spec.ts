@@ -16,6 +16,7 @@ test.describe('Inventory', () => {
 		]);
 
 		await inventoryPage.visit();
+
 		await inventoryPage.inventoryVisible();
 	});
 
