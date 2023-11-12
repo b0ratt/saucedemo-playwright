@@ -15,6 +15,7 @@ test.describe('Authentication', () => {
 	});
 
 	test('verify authentication form', async ({ page }) => {
+		await page.evaluate(() => document.fonts.ready);
 		await expect(page).toHaveScreenshot('auth-form.png');
 	});
 
@@ -24,6 +25,7 @@ test.describe('Authentication', () => {
 		await authPage.clickLoginBtn();
 
 		await inventoryPage.inventoryVisible();
+		await page.evaluate(() => document.fonts.ready);
 		await expect(page).toHaveScreenshot('inventory-page.png');
 	});
 });

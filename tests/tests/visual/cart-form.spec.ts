@@ -24,6 +24,7 @@ test.describe('Cart', () => {
 		await cartPage.visit();
 		await cartPage.cartVisible();
 
+		await page.evaluate(() => document.fonts.ready);
 		await expect(page).toHaveScreenshot('cart-empty.png');
 	});
 
@@ -33,6 +34,7 @@ test.describe('Cart', () => {
 		await inventoryPage.addToCartByName('Sauce Labs Backpack');
 		await cartPage.visit();
 
+		await page.evaluate(() => document.fonts.ready);
 		await expect(page).toHaveScreenshot('screenshot/cart.png');
 	});
 });

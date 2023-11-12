@@ -20,6 +20,7 @@ test.describe('Inventory', () => {
 	});
 
 	test('verify inventory page after login', async ({ page }) => {
+		await page.evaluate(() => document.fonts.ready);
 		await expect(page).toHaveScreenshot('inventory-page.png');
 	});
 });
