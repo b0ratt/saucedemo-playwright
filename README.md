@@ -6,6 +6,7 @@
 * Divided E2E and visual tests
 * GitHub Actions
 * Playwright HTML reporter
+* Slack notification after test execution
 
 
 ## :hammer: How to run :hammer:
