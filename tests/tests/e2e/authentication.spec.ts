@@ -9,7 +9,6 @@ test.describe('Authentication', () => {
 	test.beforeEach(async ({ page }) => {
 		authPage = new AuthenticationPage(page);
 		inventoryPage = new InventoryPage(page);
-
 		await page.goto('/');
 		await expect(page).toHaveTitle(/Swag Labs/);
 	});
