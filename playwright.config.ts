@@ -1,18 +1,27 @@
 import { defineConfig, devices } from '@playwright/test';
 
-/**
- * Read environment variables from file.
- * https://github.com/motdotla/dotenv
- */
-// require('dotenv').config();
+require('dotenv').config();
 
-/**
- * See https://playwright.dev/docs/test-configuration.
- */
 export default defineConfig({
 	testDir: 'tests/tests',
 	fullyParallel: true,
-	reporter: [['html', { open: 'never' }]],
+	reporter: [
+		[
+		  "./node_modules/playwright-slack-report/dist/src/SlackReporter.js",
+		  {
+			slackWebHookUrl: process.env.SLACK_WEBHOOK,
+			sendResults: "always",
+			showInThread: true,
+			meta: [
+				{
+					key: 'Branch',
+					value: process.env.BRANCH_NAME,
+				}
+			],
+		  },
+		],
+		['html', { open: 'never' }],
+	  ],
 	use: {
 		baseURL: 'http://localhost:3000',
 		testIdAttribute: 'data-testid',
