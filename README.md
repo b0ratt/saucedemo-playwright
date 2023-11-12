@@ -29,5 +29,7 @@ Currently 3 pipelines are available:
   - Run visual tests
   - Update snapshots
 
+After execution test results will be stored as artifacts.
+
 ## :fire: Issues :fire:
 If your PR is failing because of differences between snapshots and you want to update snapshots then just add `/update-snapshots` comment in your PR and it will automatically trigger `Update Snapshots` job and commit updated snapshots in your branch.
