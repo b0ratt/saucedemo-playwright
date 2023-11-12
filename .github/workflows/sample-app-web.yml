@@ -1,6 +1,6 @@
 name: Run e2e tests
 
-on: pull_request
+on: [pull_request, workflow_dispatch]
 
 jobs:
   build:
@@ -40,16 +40,14 @@ jobs:
       - name: Run playwright tests
         run: npm run e2e
 
+      - name: Lost Pixel
+        uses: lost-pixel/lost-pixel@v3.4.0
+        env:
+          LOST_PIXEL_API_KEY: e529e89e-8982-4dd5-864f-2a9da878ba9c
+
       - uses: actions/upload-artifact@v3
         if: failure()
         with:
           name: playwright-report
           path: playwright-report/
-          retention-days: 30
-
-      - uses: actions/upload-artifact@v3
-        if: failure()
-        with:
-          name: tests
-          path: tests/
           retention-days: 30
