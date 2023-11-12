@@ -51,6 +51,7 @@
 		"enzyme": "^3.11.0",
 		"enzyme-adapter-react-16": "^1.15.6",
 		"enzyme-to-json": "^3.6.1",
+		"playwright-slack-report": "^1.1.25",
 		"prop-types": "^15.7.2",
 		"screener-storybook": "^0.21.2",
 		"storybook-react-router": "^1.0.8",
@@ -62,8 +63,7 @@
 		"start": "react-scripts start",
 		"build": "react-scripts build",
 		"backtrace.sourcemaps": "backtrace-js run",
-		"e2e": "playwright test",
-		"e2e:headless": "playwright test e2e",
+		"e2e": "playwright test e2e",
 		"visual": "playwright test visual"
 	},
 	"browserslist": {

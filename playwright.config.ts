@@ -12,7 +12,23 @@ import { defineConfig, devices } from '@playwright/test';
 export default defineConfig({
 	testDir: 'tests/tests',
 	fullyParallel: true,
-	reporter: [['html', { open: 'never' }]],
+	reporter: [
+		[
+		  "./node_modules/playwright-slack-report/dist/src/SlackReporter.js",
+		  {
+			slackWebHookUrl: 'https://hooks.slack.com/services/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',
+			sendResults: "always",
+			showInThread: true,
+			meta: [
+				{
+					key: 'Branch',
+					value: process.env.BRANCH, // depending on your CI environment, this can be the branch name, build id, etc
+				}
+			],
+		  },
+		],
+		['html', { open: 'never' }], // other reporters
+	  ],
 	use: {
 		baseURL: 'http://localhost:3000',
 		testIdAttribute: 'data-testid',
