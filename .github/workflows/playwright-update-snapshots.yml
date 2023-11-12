@@ -1,0 +1,48 @@
+name: Update playwright snapshots
+
+on: workflow_dispatch
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./
+    env:
+      BUILD_PREFIX: true
+      IS_MAIN: ${{ github.ref == 'refs/heads/main' }}
+      SAUCE_USERNAME: ${{ secrets.SAUCE_USERNAME }}
+      SAUCE_ACCESS_KEY: ${{ secrets.SAUCE_ACCESS_KEY }}
+      SCREENER_API_KEY: ${{ secrets.SCREENER_API_KEY }}
+
+    strategy:
+      matrix:
+        node-version: [14.x]
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+
+      - name: Setup Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Install Playwright
+        run: npx playwright install
+
+      - name: Build app
+        run: npm run start & npx wait-on --timeout 60000 http://localhost:3000
+
+      - name: Run playwright tests and update snapshots
+        run: npx playwright test --update-snapshots
+
+      - uses: actions/upload-artifact@v2
+        if: failure()
+        with:
+          name: playwright-report
+          path: playwright-report/
+          retention-days: 30
