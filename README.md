@@ -16,7 +16,7 @@
 4. Run playwright test
    - `npm e2e` (only e2e)
    - `npm visual` (only visual)
-   - `npm all-tests` (everything)
+   - `npm all:tests` (everything)
 
 Right now using basic playwright html reporter so test execution results will be stored in `./playwright-report/` directory. Report will be shared at slack channel #playwright-results
 
