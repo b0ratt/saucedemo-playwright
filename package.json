@@ -61,7 +61,7 @@
 		"start": "react-scripts start",
 		"build": "react-scripts build",
 		"backtrace.sourcemaps": "backtrace-js run",
-		"e2e": "playwright test --ui",
+		"e2e": "playwright test",
 		"e2e:headless": "playwright test e2e",
 		"visual": "playwright test visual"
 	},
