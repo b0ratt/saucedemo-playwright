@@ -41,8 +41,15 @@ jobs:
         run: npx playwright test --update-snapshots
 
       - uses: actions/upload-artifact@v2
-        if: failure()
+        if: always()
         with:
           name: playwright-report
           path: playwright-report/
+          retention-days: 30
+
+      - uses: actions/upload-artifact@v3
+        if: always()
+        with:
+          name: tests
+          path: tests/
           retention-days: 30
