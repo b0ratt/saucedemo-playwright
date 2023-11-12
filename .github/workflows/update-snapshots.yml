@@ -41,6 +41,9 @@ jobs:
       - name: Install Playwright browsers
         run: npx playwright install --with-deps chromium
         
+      - name: Build app
+        run: npm run start & npx wait-on --timeout 60000 http://localhost:3000
+
       - name: Update snapshots
         run: npx playwright test --update-snapshots --reporter=list
       - uses: stefanzweifel/git-auto-commit-action@v4
